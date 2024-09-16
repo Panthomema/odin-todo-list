@@ -1,1 +1,3 @@
-// App entrypoint
+import './styles/reset.css';
+import './styles/style.css';
+
