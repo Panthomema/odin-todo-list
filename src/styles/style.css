@@ -3,14 +3,17 @@
 :root {
   --color-dark: #1a1a1a;
   --color-light: #f0f0f0;
-  --color-light-accent: #d0d0d0;
+  --color-light-100: #e0e0e0;
+  --color-light-200: #d0d0d0;
   --font-size-base: clamp(14px, calc(12px + 0.5vw), 18px);
+  --width-aside: 100dvw;
 }
 
 body {
   color: var(--color-dark);
   font-family: Raleway, sans-serif;
   font-size: var(--font-size-base);
+  overflow-y: hidden;
 }
 
 svg {
@@ -27,6 +30,8 @@ header {
   align-items: center;
   gap: 0.2em;
   font-size: 1.5rem;
+  position: sticky;
+  top: 0;
 }
 
 header svg {
@@ -35,40 +40,79 @@ header svg {
 
 #menu-btn {
   margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.rotated-180 {
+  transform: rotate(-180deg);
 }
 
 aside {
-  background: var(--color-light-accent);
+  background: var(--color-light-100);
   font-size: 1.2rem;
   font-weight: 500;
-  padding: 1.5em;
+  padding: 1.25em;
   position: fixed;
-  right: 0;
+  right: -100dvw;
   height: 100%;
-  width: 100%;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  transition: right 0.3s ease;
+}
+
+.aside-visible {
+  right: 0;
+}
+
+aside h2 {
+  font-size: 1.25em;
+  font-weight: 600;
 }
 
 nav ul {
   display: flex;
   flex-direction: column;
-  gap: 1.2em;
+  gap: 0.2em;
 }
 
 nav button {
   display: flex;
   align-items: center;
+  width: 100%;
   gap: 1em;
+  padding: 0.6em;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background-color: var(--color-light-200);
 }
 
 nav svg {
   stroke: var(--color-dark);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 421px) {
+  aside {
+    padding: 1.5em;
+    width: max-content;
+    min-width: 17.5em;
+    max-width: 22.5em;
+  }
+}
 
+@media only screen and (min-width: 769px) {
   header {
     font-size: 1.75rem;
     padding: 1em;
+    position: relative;
+  }
+
+  aside {
+    right: 0;
   }
 
   #menu-btn {
