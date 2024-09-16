@@ -3,6 +3,7 @@
 :root {
   --color-dark: #1a1a1a;
   --color-light: #f0f0f0;
+  --color-light-accent: #d0d0d0;
   --font-size-base: clamp(14px, calc(12px + 0.5vw), 18px);
 }
 
@@ -12,11 +13,16 @@ body {
   font-size: var(--font-size-base);
 }
 
+svg {
+  height: 1.2em;
+  width: 1.2em;
+}
+
 header {
   background-color: var(--color-dark);
   color: var(--color-light);
   font-weight: 400;
-  padding: 1em;
+  padding: 0.8em;
   display: flex;
   align-items: center;
   gap: 0.2em;
@@ -24,8 +30,6 @@ header {
 }
 
 header svg {
-  height: 1.2em;
-  width: 1.2em;
   stroke: var(--color-light);
 }
 
@@ -34,13 +38,37 @@ header svg {
 }
 
 aside {
-  background-color: gray;
-  width: 30%;
+  background: var(--color-light-accent);
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1.5em;
+  position: fixed;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+nav button {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+nav svg {
+  stroke: var(--color-dark);
 }
 
 @media only screen and (min-width: 768px) {
+
   header {
     font-size: 1.75rem;
+    padding: 1em;
   }
 
   #menu-btn {
