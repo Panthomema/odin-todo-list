@@ -13,7 +13,9 @@ body {
   color: var(--color-dark);
   font-family: Raleway, sans-serif;
   font-size: var(--font-size-base);
-  overflow-y: hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 svg {
@@ -31,7 +33,6 @@ header {
   gap: 0.2em;
   font-size: 1.5rem;
   position: sticky;
-  top: 0;
 }
 
 header svg {
@@ -47,26 +48,41 @@ header svg {
   transform: rotate(-180deg);
 }
 
-aside {
-  background: var(--color-light-100);
-  font-size: 1.2rem;
-  font-weight: 500;
-  padding: 1.25em;
-  position: fixed;
-  right: -100dvw;
+main {
+  flex: 1;
+  background-color: var(--color-light);
   height: 100%;
-  width: 100dvw;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 1.5em;
-  transition: right 0.3s ease;
 }
 
-.aside-visible {
+section {
+  padding: 2em;
+  flex: 1;
+}
+
+nav {
+  background: var(--color-light-100);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1.25em;
+  position: absolute;
+  top: 0;
+  right: -100dvw;
+  width: 100dvw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  transition: right 0.3s ease;
+  z-index: 99;
+}
+
+.nav-visible {
   right: 0;
 }
 
-aside h2 {
+nav h2 {
   font-size: 1.25em;
   font-weight: 600;
 }
@@ -81,7 +97,7 @@ nav button {
   display: flex;
   align-items: center;
   width: 100%;
-  gap: 1em;
+  gap: 0.8em;
   padding: 0.6em;
   border-radius: 0.2em;
   cursor: pointer;
@@ -96,7 +112,7 @@ nav svg {
 }
 
 @media only screen and (min-width: 421px) {
-  aside {
+  nav {
     padding: 1.5em;
     width: max-content;
     min-width: 17.5em;
@@ -109,10 +125,6 @@ nav svg {
     font-size: 1.75rem;
     padding: 1em;
     position: relative;
-  }
-
-  aside {
-    right: 0;
   }
 
   #menu-btn {
