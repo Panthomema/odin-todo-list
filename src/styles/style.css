@@ -101,6 +101,7 @@ nav {
   flex-direction: column;
   gap: 1em;
   transition: transform 0.3s ease;
+  z-index: 99;
 }
 
 .nav-visible {
@@ -136,15 +137,38 @@ nav svg {
   stroke: var(--color-dark);
 }
 
+.overlay {
+  display: none;
+}
+
 @media only screen and (min-width: 421px) {
   section {
     padding: 1em 4em 1em 2em;
   }
+}
+
+@media only screen and (min-width: 595px) {
   nav {
     padding: 1.5em;
     width: max-content;
     min-width: 17.5em;
     max-width: 22.5em;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #1a1a1abb;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .overlay.displayed {
+    display: block;
+  }
+
+  .overlay.visible {
+    opacity: 1;
   }
 }
 
