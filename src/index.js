@@ -11,19 +11,7 @@ document.querySelector('#menu-btn').addEventListener('click', (event) => {
 });
 
 document.querySelector('#menu-btn').addEventListener('click', () => {
-  const overlay = document.querySelector('.overlay');
-
-  if (overlay.classList.contains('visible')) {
-    overlay.addEventListener('transitionend', () => {
-      overlay.classList.remove('displayed');
-    }, { once: true });
-    overlay.classList.remove('visible');
-  } else {
-    overlay.classList.add('displayed');
-    setTimeout(() => {
-      overlay.classList.add('visible');
-    }, 1);
-  }
+  document.querySelector('.overlay').classList.toggle('visible');
 });
 
 document.querySelector('#inbox-btn').addEventListener('click', () => {
