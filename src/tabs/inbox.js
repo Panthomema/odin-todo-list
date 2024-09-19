@@ -1,5 +1,5 @@
-const inbox = document.createElement('div');
-inbox.classList.add('content');
+const inbox = document.createElement('section');
+inbox.setAttribute('id', 'inbox');
 
 inbox.innerHTML = '<h2>Inbox</h2>'
 

@@ -119,7 +119,7 @@ nav ul {
   gap: 0.2em;
 }
 
-nav button {
+nav ul button {
   display: flex;
   align-items: center;
   width: 100%;
@@ -129,12 +129,22 @@ nav button {
   cursor: pointer;
 }
 
-nav button:hover {
+nav button:hover,
+nav ul button.actual {
   background-color: var(--color-light-200);
+}
+
+nav ul button.actual {
+  font-weight: 600;
+}
+
+nav ul button.actual > svg {
+  stroke-width: 2;
 }
 
 nav svg {
   stroke: var(--color-dark);
+  stroke-width: 1.5;
 }
 
 .overlay {
