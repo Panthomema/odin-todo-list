@@ -5,6 +5,10 @@
   --color-light: #f0f0f0;
   --color-light-100: #e0e0e0;
   --color-light-200: #d0d0d0;
+  --color-action: #77ff77;
+  --color-action-100: #66dd66;
+  --color-danger: #ff7777;
+  --color-danger-100: #dd6666;
   --font-size-base: clamp(14px, calc(12px + 0.25vw + 0.25vh), 18px);
 }
 
@@ -145,6 +149,49 @@ nav ul button.actual > svg {
 nav svg {
   stroke: var(--color-dark);
   stroke-width: 1.5;
+}
+
+nav form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+nav input {
+  padding: 0.6em;
+  border-radius: 0.2em;
+  border: 0.1em solid var(--color-light-200);
+  background-color: var(--color-light);
+}
+
+.form-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: stretch;
+  justify-items: center;
+  gap: 0.6em
+}
+
+.form-controls button {
+  padding: 0.6em;
+  justify-content: center;
+  border: 0.1em solid var(--interaction-color);
+  font-weight: 600;
+}
+
+.form-controls button:hover {
+  background-color: var(--interaction-color);
+  color: var(--color-light);
+}
+
+.action {
+  --interaction-color: var(--color-action-100);
+  background-color: var(--color-action);
+}
+
+.danger {
+  --interaction-color: var(--color-danger-100);
+  background-color: var(--color-danger);
 }
 
 .overlay {
